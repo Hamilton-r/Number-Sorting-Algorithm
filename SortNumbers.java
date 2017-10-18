@@ -20,10 +20,9 @@ public class SortNumbers {
 		
 		//find length of array to control loop
 		int length = numbers.length-1; 
-		int outer=0;
 		
 		//do not exceed length of array in loop
-		while (outer<length){
+		for (int outer = 0; outer<length; outer++){
 			
 			//reset second counter
 			int inner = 0;
@@ -43,9 +42,7 @@ public class SortNumbers {
 				if (outer+inner<0) {
 					break;
 				}
-			}
-			//increment to go to next number
-			outer++;	
+			}	
 		}
 		//convert finished array to string and print
 		System.out.println(Arrays.toString(numbers));
