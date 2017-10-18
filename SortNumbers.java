@@ -1,45 +1,53 @@
-/**
- * 
- */
 package algorithms;
 
 import java.util.Arrays;
 
 /**
+ * This class will place any list of numbers in numerical order
  * @author Richard
  *
  */
 public class SortNumbers {
 
 	/**
+	 * This method will take a random set of numbers and
+	 * place them in numerical order
 	 * @param args
 	 */
 	public static void main(String[] args) {
 		//create array
-		int[] numbers = new int[]{9,8,7,6,5,4,3,2,1};
+		int[] numbers = new int[]{9,8,7,6,5,4,3,2,1,10,11,15,14};
+		
 		//find length of array to control loop
 		int length = numbers.length-1; 
-		int i=0;
+		int outer=0;
+		
 		//do not exceed length of array in loop
-		while (i<length){
+		while (outer<length){
+			
 			//reset second counter
-			int j = 0;
+			int inner = 0;
+			
 			//keep looping while two consecutive numbers are not in order
-			while (numbers[i+j]>numbers[i+j+1]) {
+			while (numbers[outer+inner]>numbers[outer+inner+1]) {
+				
 				//swap numbers that are not in order
-				int temp = numbers[i+j];
-				numbers[i+j] = numbers[i+j+1];
-				numbers[i+j+1] = temp;
+				int temp = numbers[outer+inner];
+				numbers[outer+inner] = numbers[outer+inner+1];
+				numbers[outer+inner+1] = temp;
+				
 				//decrement and see if numbers need swapped again
-				j--;
+				inner--;
+				
 				//break on negative index to prevent overflow error
-				if (i+j<0) {
+				if (outer+inner<0) {
 					break;
 				}
 			}
-		i++;	
+			//increment to go to next number
+			outer++;	
 		}
-		
+		//convert finished array to string and print
 		System.out.println(Arrays.toString(numbers));
 
 	}
